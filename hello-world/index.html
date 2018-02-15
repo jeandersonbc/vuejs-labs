@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <title>Hello World VueJS App</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="widget">
+    <p>{{ title }}</p>
+  </div>
+
+  <script>
+    new Vue({
+      "el": "#widget",
+      "data": {
+        "title": "Hello World!"
+      }
+    });
+  </script>
+</body>
+
+</html>
