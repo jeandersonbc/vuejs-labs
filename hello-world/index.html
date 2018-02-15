@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="utf-8"/>
   <title>Hello World VueJS App</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 </head>
@@ -8,14 +9,28 @@
 <body>
 
   <div id="widget">
+    <input type="text" v-on:input="changeTitle"/>
     <p>{{ title }}</p>
   </div>
 
   <script>
     new Vue({
-      "el": "#widget",
-      "data": {
-        "title": "Hello World!"
+      // binds this vue obj to a DOM element
+      el: "#widget",
+
+      // defines the attributes/bindings of this object
+      data: {
+        title: "Hello World!"
+      },
+
+      // defines behaviours of this object
+      methods: {
+
+        changeTitle: function(event) {
+          // every attribute declared on "data" is visible to this vue obj
+          this.title = event.target.value;
+        }
+
       }
     });
   </script>
