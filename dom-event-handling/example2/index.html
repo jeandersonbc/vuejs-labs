@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <title>Event Handling VueJS</title>
+  </head>
+
+  <body>
+
+    <div id="exercise">
+      <!-- Shows an alert when the Button gets clicked (click event)-->
+      <div>
+        <button v-on:click="displayAlert">Show Alert</button>
+      </div>
+
+      <!-- Listens to the "keydown" event and store the value in a data
+      property only if the "key down" is the ENTER key -->
+      <div>
+        <input v-on:keydown.enter="displayInput" type="text">
+        <p>{{ value }}</p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
