@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Two-Way Binding in VueJS</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="example1">
+      <input v-bind:value="value" type="text">
+      <p>Notice that the value on the VueJS doesn't change: <strong>{{ value }}</strong></p>
+    </div>
+    <hr/>
+    <div id="example2">
+      <input v-model="value" type="text">
+      <p>Now with two-way binding: <strong>{{ value }}</strong></p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
