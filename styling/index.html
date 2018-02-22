@@ -17,6 +17,9 @@
       <div :class="{ highlight: active, shrink: !active }" id="effect"></div>
     </div>
 
+    <!-- Create a couple of CSS classes and attach them via the array syntax -->
+    <div style="text-align: center; padding: 10px;" :class="[shapeStyle, active ? blinkStyle : '']">I got no class :(</div>
+
   </div>
   <script src="app.js"></script>
 

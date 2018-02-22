@@ -1,7 +1,9 @@
 new Vue({
-  el: '#exercise',
+  el: "#exercise",
   data: {
-    active: true 
+    active: true,
+    shapeStyle: "shape",
+    blinkStyle: "hide"
   },
   methods: {
     startEffect: function() {
