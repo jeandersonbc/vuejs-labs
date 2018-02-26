@@ -19,6 +19,15 @@ new Vue({
         },
         resetGame: function() {
             this.playerHP = this.monsterHP = 100;
+        },
+        attackMonster: function() {
+
+        },
+        specialAttack: function() {
+
+        },
+        healPlayer: function() {
+
         }
     }
 });
