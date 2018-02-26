@@ -1,26 +1,46 @@
-<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <title>Conditionals and Loops</title>
+  </head>
+  <body>
 
-<div id="exercise">
-  <!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
-  <div>
-    <button>Toggle</button>
-    <p>You either see me ...</p>
-    <p>...or me</p>
-    <p>You either see me ...</p>
-    <p>...or me</p>
-  </div>
-  <!-- 2) Output an <ul> of array elements of your choice. Also print the index of each element. -->
-  <ul>
-    <li></li>
-  </ul>
-  <!-- 3) Print all key-value pairs of the following object: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
-  <ul>
-    <li></li>
-  </ul>
-  <!-- 4) Print the following object (only the values) and also create a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: use v-for and v-if to achieve this) -->
-  <ul>
-    <li>
-    
-    </li>
-  </ul>
-</div>
+    <div id="exercise">
+      <div>
+        <button @click="toggle = !toggle">Toggle</button>
+
+        <!-- v-show uses "display: none" to show and hide elements -->
+        <p v-show="toggle">You either see me ...</p>
+        <p v-show="!toggle">...or me</p>
+
+        <!-- On the other hand, v-if removes and adds the element on the DOM -->
+        <p v-if="toggle">You either see me ...</p>
+        <p v-else>...or me</p>
+      </div>
+
+      <!-- Simple iteration -->
+      <ul v-for="element in array">
+        <li>{{ element }}</li>
+      </ul>
+
+      <!-- Iterating over an object -->
+      <ul v-for="(value, key, i) in myObject">
+        <li>Property #{{ i }}: {{ key }} = {{ value }}</li>
+      </ul>
+
+      <ul v-for="value in testData">
+        <template v-if="Array.isArray(value)">
+          <ul v-for="e in value">
+            <li>{{ e }}</li>
+          </ul>
+        </template>
+        <li v-else>{{ value }}</li>
+      </ul>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
