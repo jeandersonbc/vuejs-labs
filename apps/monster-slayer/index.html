@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Monster Slayer</title>
     <script src="https://npmcdn.com/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="css/foundation.min.css">
@@ -12,8 +14,8 @@
         <div class="small-6 columns">
             <h1 class="text-center">YOU</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
-
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="playerBarCss">
+                    <span>{{ playerHP }}</span>
                 </div>
             </div>
         </div>
@@ -21,7 +23,7 @@
             <h1 class="text-center">MONSTER</h1>
             <div class="healthbar">
                 <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
-
+                    <span>{{ monsterHP }}</span>
                 </div>
             </div>
         </div>
@@ -49,5 +51,6 @@
         </div>
     </section>
 </div>
+<script src="app.js"></script>
 </body>
 </html>
