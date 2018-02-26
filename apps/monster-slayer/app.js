@@ -21,13 +21,54 @@ new Vue({
             this.playerHP = this.monsterHP = 100;
         },
         attackMonster: function() {
-
+            var minDamage = 2;
+            var damage = Math.max(Math.round(Math.random() * 10), minDamage);
+            this.monsterHP -= damage;
+            if (this.monsterHP <= 0) {
+                alert("You won!");
+                this.isRunning = false;
+                this.resetGame();
+                return;
+            }
+            var minDamage = 5;
+            var damage = Math.max(Math.round(Math.random() * 10), minDamage);
+            this.playerHP -= damage;
+            if (this.playerHP <= 0) {
+                alert("You lost!");
+                this.isRunning = false;
+                this.resetGame();
+            }
         },
         specialAttack: function() {
-
+            var minDamage = 10;
+            var damage = Math.max(Math.round(Math.random() * 11), minDamage);
+            this.monsterHP -= damage;
+            if (this.monsterHP <= 0) {
+                alert("You won!");
+                this.isRunning = false;
+                this.resetGame();
+                return;
+            }
+            var minDamage = 15;
+            var damage = Math.max(Math.round(Math.random() * 11), minDamage);
+            this.playerHP -= damage;
+            if (this.playerHP <= 0) {
+                alert("You lost!");
+                this.isRunning = false;
+                this.resetGame();
+            }
         },
         healPlayer: function() {
+            this.playerHP = Math.min(this.playerHP + 15, 100);
 
+            var minDamage = 5;
+            var damage = Math.max(Math.round(Math.random() * 10), minDamage);
+            this.playerHP -= damage;
+            if (this.playerHP <= 0) {
+                alert("You lost!");
+                this.isRunning = false;
+                this.resetGame();
+            }
         }
     }
 });
