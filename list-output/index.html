@@ -13,8 +13,19 @@
     <div id="widget">
       <h2>Ingredients:</h2>
       <ul>
-        <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+        <!-- v-for uses the second parameter to keep the index -->
+        <li v-for="(ingredient, i) in ingredients">{{ ingredient }} (index: {{ i }})</li>
       </ul>
+      
+      <h2>Sons of Apollo</h2>
+      <ul v-for="(player, i) in players">
+        <li>Player #{{ i }}
+          <template v-for="(value, key) in player">
+            <div>{{ key }}: {{ value }}</div>
+          </template>
+        </li>
+      </ul>
+
     </div>
 
     <script src="app.js"></script>
