@@ -20,6 +20,16 @@ new Vue({
         resetGame: function() {
             this.playerHP = this.monsterHP = 100;
         },
+        monsterAttacks: function() {
+            var minDamage = 5;
+            var damage = Math.max(Math.round(Math.random() * 10), minDamage);
+            this.playerHP -= damage;
+            if (this.playerHP <= 0) {
+                alert("You lost!");
+                this.isRunning = false;
+                this.resetGame();
+            }
+        },
         attackMonster: function() {
             var minDamage = 2;
             var damage = Math.max(Math.round(Math.random() * 10), minDamage);
@@ -30,14 +40,7 @@ new Vue({
                 this.resetGame();
                 return;
             }
-            var minDamage = 5;
-            var damage = Math.max(Math.round(Math.random() * 10), minDamage);
-            this.playerHP -= damage;
-            if (this.playerHP <= 0) {
-                alert("You lost!");
-                this.isRunning = false;
-                this.resetGame();
-            }
+            this.monsterAttacks();
         },
         specialAttack: function() {
             var minDamage = 10;
@@ -49,26 +52,11 @@ new Vue({
                 this.resetGame();
                 return;
             }
-            var minDamage = 15;
-            var damage = Math.max(Math.round(Math.random() * 11), minDamage);
-            this.playerHP -= damage;
-            if (this.playerHP <= 0) {
-                alert("You lost!");
-                this.isRunning = false;
-                this.resetGame();
-            }
+            this.monsterAttacks();
         },
         healPlayer: function() {
             this.playerHP = Math.min(this.playerHP + 15, 100);
-
-            var minDamage = 5;
-            var damage = Math.max(Math.round(Math.random() * 10), minDamage);
-            this.playerHP -= damage;
-            if (this.playerHP <= 0) {
-                alert("You lost!");
-                this.isRunning = false;
-                this.resetGame();
-            }
+            this.monsterAttacks();
         }
     }
 });
