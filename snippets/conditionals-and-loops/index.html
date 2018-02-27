@@ -22,22 +22,22 @@
       </div>
 
       <!-- Simple iteration -->
-      <ul v-for="element in array">
-        <li>{{ element }}</li>
+      <ul>
+        <li v-for="element in array">{{ element }}</li>
       </ul>
 
       <!-- Iterating over an object -->
-      <ul v-for="(value, key, i) in myObject">
-        <li>Property #{{ i }}: {{ key }} = {{ value }}</li>
+      <ul>
+        <li v-for="(value, key, i) in myObject">Property #{{ i }}: {{ key }} = {{ value }}</li>
       </ul>
 
-      <ul v-for="value in testData">
-        <template v-if="Array.isArray(value)">
-          <ul v-for="e in value">
-            <li>{{ e }}</li>
+      <ul>
+        <template v-for="value in testData">
+          <ul v-if="Array.isArray(value)">
+            <li v-for="element in value">{{ element }}</li>
           </ul>
+          <li v-else>{{ value }}</li>
         </template>
-        <li v-else>{{ value }}</li>
       </ul>
     </div>
 
