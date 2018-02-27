@@ -18,8 +18,8 @@
       </ul>
       
       <h2>Sons of Apollo</h2>
-      <ul v-for="(player, i) in players">
-        <li>Player #{{ i }}
+      <ul>
+        <li v-for="(player, i) in players">Player #{{ i }}
           <template v-for="(value, key) in player">
             <div>{{ key }}: {{ value }}</div>
           </template>
