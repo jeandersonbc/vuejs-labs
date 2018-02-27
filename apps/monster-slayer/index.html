@@ -41,12 +41,11 @@
             <button @click="giveUp()" id="give-up">GIVE UP</button>
         </div>
     </section>
-    <section class="row log" v-if="!isRunning">
+    <section class="row log" v-if="isRunning">
         <div class="small-12 columns">
-            <ul>
-                <li>
-
-                </li>
+            <ul v-for="event in events">
+                <li v-if="event.isPlayer" style="background:blue;">{{ event.msg }}</li>
+                <li v-else style="background:red;">{{ event.msg }}</li>
             </ul>
         </div>
     </section>
