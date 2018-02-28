@@ -1,7 +1,15 @@
 <template>
 <ul class="list-group">
-    <li class="list-group-item" v-for="index in 5">
-        Server #{{ index }}
-    </li>
+    <server v-for="index in 5"></server>
 </ul>
 </template>
+
+<script>
+import Server from './Server.vue';
+
+export default {
+    components: {
+        "server": Server
+    }
+}
+</script>
